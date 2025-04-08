@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #ffffff , #e0f7fa);
+  color: #333;
+}
+
+.app {
+  padding: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 12px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 24px;
+  color: #0077b6;
+}
+
+.nav-links a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.search-section {
+  margin-top: 20px;
+}
+
+.search-bar {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px 0 0 8px;
+}
+
+.search-bar button {
+  padding: 10px;
+  background: #0077b6;
+  border: none;
+  color: white;
+  border-radius: 0 8px 8px 0;
+}
+
+.filters select {
+  margin-right: 10px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.card-section {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.info-card {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.documents-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns */
+  gap: 16px; /* Space between cards */
+  max-height: 400px; /* Set a fixed height for scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 16px;
+  border: 1px solid #ddd; /* Optional: Add a border for clarity */
+}
+
+.doc-image {
+  height: 250px; /* Adjust height as needed */
+  width: 150px; /* Maintain a proportional width */
+  background-color: #f0f0f0; /* Optional: Placeholder background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px; /* Adjust font size for the 📄 emoji */
+  border-radius: 8px; /* Optional: Rounded corners */
+  margin: 0 auto; /* Center the image horizontally */
+}
+.document-card {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.doc-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.icons svg {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.offline-downloads {
+  margin-top: 30px;
+  background: #e0f7fa;
+  padding: 20px;
+  border-radius: 12px;
+}
