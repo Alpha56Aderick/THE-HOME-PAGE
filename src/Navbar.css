@@ -27,7 +27,7 @@
   transition: all 0.3s;
 }
 
-/* Home link is always active */
+/* Highlight the active link (Home) with a permanent bar */
 .nav-link[href="/home"],
 .nav-link[href="/"] {
   color: #007bff;
@@ -37,42 +37,36 @@
   display: flex;
   align-items: center;
   gap: 8px;
-}
-
-.nav-link[href="/home"]::before,
-.nav-link[href="/"]::before {
-  content: '🏠';
-  font-size: 1.1rem;
+  position: relative; /* Required for the permanent bar */
 }
 
 .nav-link[href="/home"]::after,
 .nav-link[href="/"]::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -4px; /* Position the bar just below the link */
   left: 0;
   width: 100%;
   height: 3px;
   background-color: #007bff;
-  animation: none;
+  animation: none; /* Ensure no animation for the permanent bar */
 }
 
 /* Hover animation for non-home links */
 .nav-link:not([href="/home"]):not([href="/"])::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -4px; /* Position the bar just below the link */
   left: 0;
   width: 0;
   height: 3px;
   background-color: #007bff;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease; /* Smooth animation for hover effect */
 }
 
 .nav-link:not([href="/home"]):not([href="/"]):hover::after {
-  width: 100%;
+  width: 100%; /* Expand the bar on hover */
 }
-
 .search-container {
   position: relative;
 }

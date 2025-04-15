@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaShareAlt, FaDownload, FaHeart, FaStar } from "react-icons/fa";
 import Navbar from "./Navbar";
+import FilterComponent from "./FilterComponent";
 import "./App.css";
 
 function App() {
@@ -21,10 +22,10 @@ function App() {
   ]);
   const [searchQuery, setSearchQuery] = useState("");
   const [filters, setFilters] = useState({
-    year: "",
-    degree: "",
-    department: "",
-    semester: "",
+    year: "ALL",
+    degree: "ALL",
+    department: "ALL",
+    semester: "ALL",
   });
 
   const handleSearch = (query) => {
@@ -41,10 +42,10 @@ function App() {
   const filteredDocuments = documents.filter((doc) => {
     return (
       doc.name.toLowerCase().includes(searchQuery) &&
-      (filters.year === "" || doc.year === filters.year) &&
-      (filters.degree === "" || doc.degree === filters.degree) &&
-      (filters.department === "" || doc.department === filters.department) &&
-      (filters.semester === "" || doc.semester === filters.semester)
+      (filters.year === "ALL" || filters.year === "" || doc.year === filters.year.toLowerCase()) &&
+      (filters.degree === "ALL" || filters.degree === "" || doc.degree === filters.degree.toLowerCase()) &&
+      (filters.department === "ALL" || filters.department === "" || doc.department === filters.department.toLowerCase()) &&
+      (filters.semester === "ALL" || filters.semester === "" || doc.semester === filters.semester.toLowerCase())
     );
   });
 
@@ -67,41 +68,23 @@ function App() {
 
       {/* Filter Section */}
       <div className="filters">
-        <select
-          className="filter-select"
-          onChange={(e) => handleFilterChange("year", e.target.value)}
-        >
-          <option value="">Year</option>
-          <option value="2023">2023</option>
-          <option value="2022">2022</option>
-          <option value="2021">2021</option>
-        </select>
-        <select
-          className="filter-select"
-          onChange={(e) => handleFilterChange("degree", e.target.value)}
-        >
-          <option value="">Degree</option>
-          <option value="bachelor">BSc (Hons)</option>
-          <option value="diploma">Diploma</option>
-          <option value="masters">Masters</option>
-        </select>
-        <select
-          className="filter-select"
-          onChange={(e) => handleFilterChange("department", e.target.value)}
-        >
-          <option value="">Department</option>
-          <option value="Computer Science">Computer Science</option>
-          <option value="Information Technology">Information Technology</option>
-          <option value="Engineering">Engineering</option>
-        </select>
-        <select
-          className="filter-select"
-          onChange={(e) => handleFilterChange("semester", e.target.value)}
-        >
-          <option value="">Semester</option>
-          <option value="first">First</option>
-          <option value="second">Second</option>
-        </select>
+        {/* Replace dropdowns with FilterComponent */}
+        <FilterComponent
+          options={["ALL","1st", "2nd", "3rd", "4th"]}
+          onChange={(value) => handleFilterChange("year", value)}
+        />
+        <FilterComponent
+          options={["ALL","BACHELOR","DIPLOMA","MASTERS"]}
+          onChange={(value) => handleFilterChange("degree", value)}
+        />
+        <FilterComponent
+          options={["ALL","IT", "CS", "COE"]}
+          onChange={(value) => handleFilterChange("department", value)}
+        />
+        <FilterComponent
+          options={["ALL","FIRST", "SECOND"]}
+          onChange={(value) => handleFilterChange("semester", value)}
+        />
       </div>
 
       <div className="documents-section">
