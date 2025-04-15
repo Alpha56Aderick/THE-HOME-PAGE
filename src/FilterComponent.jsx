@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css"; // Ensure styles are applied
 
-const FilterComponent = ({ options, onChange }) => {
+const FilterComponent = ({ options, onChange, filterName }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleUpClick = () => {
