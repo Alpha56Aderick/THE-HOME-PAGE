@@ -29,7 +29,7 @@ body {
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 0.5rem;
-  width: 115px; /* Fixed width for filter container */
+  width: 115px; 
   position: relative; /* Allows positioning of buttons */
 }
 
